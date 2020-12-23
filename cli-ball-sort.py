@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 from random import shuffle as revolver
-from os import system
+from utils import clrscr
 
 tubos = list()
 totalTubos = int(input('Ingrese cantidad total de tubos (5-12): '))
@@ -55,6 +55,7 @@ def verificar():
             break
     return completado
 
+clrscr()
 nuevoJuego()
 display()
 
@@ -64,7 +65,7 @@ while True:
         int( input('Ingrese N° de tubo para sacar el último número: ') ),
         int( input('Ingrese N° de tubo agregar el número sacado número: ') )
         )
-    system('cls')
+    clrscr()
     display()
     if verificar(): break
 input('¡Has ganado!')

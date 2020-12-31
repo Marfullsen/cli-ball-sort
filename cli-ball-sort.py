@@ -2,11 +2,11 @@
 #-*- coding: utf-8 -*-
 
 from random import shuffle as revolver
-from utils import clrscr, pintar
+from utils import clrscr, pintar, paint
 
 tubos = list()
-totalTubos = int(input('Ingrese cantidad total de tubos (5-12): '))
-vacios = int(input('Ingrese de tubos vacíos (1-2): ')) 
+totalTubos = 9#int(input('Ingrese cantidad total de tubos (5-12): '))
+vacios = 2#int(input('Ingrese de tubos vacíos (1-2): ')) 
 if not (totalTubos - vacios > 2): totalTubos = 5; vacios = 2
 
 MAX_ITEMS = 4
@@ -21,18 +21,30 @@ def display():
         print('')
 
 def displayAsCol():
-    # Mostrar como columnas.
+    '''Mostrar como columnas.'''
+    margin = ' ' * 4
+    dash = '⎼' # ‐‑‒–—― ⏷⏸⏹⏺⏻⏼⏽⏾ ⎺⎻⎼⎽ ➊➋➌➍➎➏➐➑➒➓
     for i in range(MAX_ITEMS-1,-1,-1):
         for j in range(len(tubos)):
              if len(tubos[j]) < i+1:
-                 print(' '+'-', end= ' ')
+                 print(margin+'-', end= '')
              else:
-                 print(' '+tubos[j][i], end =' ')
+                 print(margin+chr(int(tubos[j][i])+65), end ='')
         print()
+
+    for tubo in range(len(tubos)):
+        print(f'{margin}{dash}',end='')
+    print()
+
+    for tubo in range(len(tubos)):
+        print(f'{margin}{tubo+1}',end='')
+    print()
 
 def mover(a,b):
     a-=1; b-=1
-    if len(tubos[a]) > 0 and len(tubos[b]) < MAX_ITEMS: # Si no sacas de un tubo vacío ni mueves a un tubo lleno:
+    if a>MAX_ITEMS or b>MAX_ITEMS:
+        input('\n¡Fuera de Alcance!\n')
+    elif len(tubos[a]) > 0 and len(tubos[b]) < MAX_ITEMS: # Si no sacas de un tubo vacío ni mueves a un tubo lleno:
         if len(tubos[b]) == 0: # Si mueves a un tubo vacío:
             tubos[b].append(tubos[a].pop())
         elif tubos[a][-1] == tubos[b][-1]: # Si mueves un elemento sobre otro igual:

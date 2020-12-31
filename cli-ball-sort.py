@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 from random import shuffle as revolver
-from utils import clrscr
+from utils import clrscr, pintar
 
 tubos = list()
 totalTubos = int(input('Ingrese cantidad total de tubos (5-12): '))
@@ -12,13 +12,23 @@ if not (totalTubos - vacios > 2): totalTubos = 5; vacios = 2
 MAX_ITEMS = 4
 
 def display():
-    char = 65 # Para ver números: 48, para ver letras: 65.
+    char = 48 # Para ver números: 48, para ver letras: 65.
     for num, tubo in enumerate(tubos):
         print(f'{num+1}) |==',end='')
         for i, elemento in enumerate(tubo):
             if i < len(tubo)-1: print(f' {chr(int(elemento)+char)} ',end='-')
             else: print(f' {chr(int(elemento)+char)} ',end='')
         print('')
+
+def displayAsCol():
+    # Mostrar como columnas.
+    for i in range(MAX_ITEMS-1,-1,-1):
+        for j in range(len(tubos)):
+             if len(tubos[j]) < i+1:
+                 print(' '+'-', end= ' ')
+             else:
+                 print(' '+tubos[j][i], end =' ')
+        print()
 
 def mover(a,b):
     a-=1; b-=1
@@ -57,7 +67,7 @@ def verificar():
 
 clrscr()
 nuevoJuego()
-display()
+displayAsCol()
 
 while True:
     print('-------')
@@ -66,6 +76,6 @@ while True:
         int( input('Ingrese N° de tubo agregar el número sacado número: ') )
         )
     clrscr()
-    display()
+    displayAsCol()
     if verificar(): break
 input('¡Has ganado!')

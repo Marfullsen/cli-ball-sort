@@ -3,13 +3,14 @@
 
 from random import shuffle as revolver
 from utils import clrscr, pintar, paint
-
+from customizer import s
 tubos = list()
 totalTubos = 9#int(input('Ingrese cantidad total de tubos (5-12): '))
 vacios = 2#int(input('Ingrese de tubos vacíos (1-2): ')) 
 if not (totalTubos - vacios > 2): totalTubos = 5; vacios = 2
 
 MAX_ITEMS = 4
+setsel = 5 # number of the set of designs selected.
 
 def display():
     char = 48 # Para ver números: 48, para ver letras: 65.
@@ -29,7 +30,9 @@ def displayAsCol():
              if len(tubos[j]) < i+1:
                  print(margin+'-', end= '')
              else:
-                 print(margin+chr(int(tubos[j][i])+65), end ='')
+                 #print(margin+chr(int(tubos[j][i])+65), end ='')
+                 tubo = int(tubos[j][i])
+                 print(margin+s[setsel][tubo], end ='')
         print()
 
     for tubo in range(len(tubos)):
@@ -38,11 +41,12 @@ def displayAsCol():
 
     for tubo in range(len(tubos)):
         print(f'{margin}{tubo+1}',end='')
+        #print(f'{margin}{s[1][tubo]}',end='')
     print()
 
 def mover(a,b):
     a-=1; b-=1
-    if a>MAX_ITEMS or b>MAX_ITEMS:
+    if a>len(tubos) or b>len(tubos):
         input('\n¡Fuera de Alcance!\n')
     elif len(tubos[a]) > 0 and len(tubos[b]) < MAX_ITEMS: # Si no sacas de un tubo vacío ni mueves a un tubo lleno:
         if len(tubos[b]) == 0: # Si mueves a un tubo vacío:
@@ -84,8 +88,8 @@ displayAsCol()
 while True:
     print('-------')
     mover(
-        int( input('Ingrese N° de tubo para sacar el último número: ') ),
-        int( input('Ingrese N° de tubo agregar el número sacado número: ') )
+        int( input('Select a column to withdraw the top element: ') ),
+        int( input('Select a column to put it into the top element: ') )
         )
     clrscr()
     displayAsCol()

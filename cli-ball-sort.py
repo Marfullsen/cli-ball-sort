@@ -2,8 +2,9 @@
 #-*- coding: utf-8 -*-
 
 from random import shuffle as revolver
-from utils import clrscr, pintar, paint
+from utils import clrscr, pintar, paint, welcomeMsg
 from customizer import s
+
 tubos = list()
 totalTubos = 9#int(input('Ingrese cantidad total de tubos (5-12): '))
 vacios = 2#int(input('Ingrese de tubos vacíos (1-2): ')) 
@@ -47,20 +48,20 @@ def displayAsCol():
 def mover(a,b):
     a-=1; b-=1
     if a>len(tubos) or b>len(tubos):
-        input('\n¡Fuera de Alcance!\n')
+        input('\n¡Out of range!\n')
     elif len(tubos[a]) > 0 and len(tubos[b]) < MAX_ITEMS: # Si no sacas de un tubo vacío ni mueves a un tubo lleno:
         if len(tubos[b]) == 0: # Si mueves a un tubo vacío:
             tubos[b].append(tubos[a].pop())
         elif tubos[a][-1] == tubos[b][-1]: # Si mueves un elemento sobre otro igual:
             tubos[b].append(tubos[a].pop())
         else:
-            input('\n¡Sólo se puede mover sobre vacío o sobre el mismo ELEMENTO!\n')
+            input('\n¡Can only be moved on empty or on the same ELEMENT!\n')
     else:
-        input('\n¡NO ES POSIBLE ESA JUGADA!\n'
-        'No puedes sacar de un tubo vacío, '
-        'tampoco mover a un tubo lleno.\n'
-        'Intenta nuevamente. '
-        f'Cantidad máxima de elementos por tubo: {MAX_ITEMS}\n'
+        input('\n¡THIS MOVE IS NOT POSSIBLE!\n'
+        'You can\'t take an element out of an empty column, '
+        'nor move to a full pipe.\n'
+        'Try again. '
+        f'Max number of elements per tube: {MAX_ITEMS}\n'
               )
 
 def nuevoJuego():
@@ -70,7 +71,7 @@ def nuevoJuego():
     tubos = [cuartetosAlAzar[x*MAX_ITEMS:x*MAX_ITEMS+MAX_ITEMS] for x in range(totalTubos)]
     
     while verificar():
-        print('\n\nMmmm.... la baraja no se revolvió bien...\nREVOLVIENDO NUEVAMENTE!\n\n')
+        print('\n\nMmmm.... the deck didn\'t shuffle properly... \nShuffling again!\n\n')
         nuevoJuego()
 
 def verificar():
@@ -81,6 +82,7 @@ def verificar():
             break
     return completado
 
+welcomeMsg()
 clrscr()
 nuevoJuego()
 displayAsCol()
@@ -94,4 +96,4 @@ while True:
     clrscr()
     displayAsCol()
     if verificar(): break
-input('¡Has ganado!')
+input('\x1b[6m¡You win!')

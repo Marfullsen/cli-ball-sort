@@ -25,10 +25,25 @@ def paint(fore='', back='', text='', style=''):
     print(fore+back+text+style)
 
 def welcomeMsg():
-    msg = ['¡Bienvenido a CLI Ball Sort,',
-    'el juego de ordenar elementos!\n',
-    '\x1b[6mInstrucciones',
-    '\x1b[1mEnter para iniciar']
+    clrscr()
+    msg = ['¡Welcome to \x1b[31m\x1b[40mCLI Ball Sort\x1b[0m,',
+    'the game of sorting items!\n',
+    '    ◆    ◇    -\n'*3+
+    '    ⎼    ⎼    ⎼',
+    '    1°   2°   3°\n',
+    '\x1b[21mHow to play\x1b[0m',
+    'You must move the elements at the top of the columns over other matching elements or over empty columns.',
+    'Note that columns have a maximum number of elements.',
+    '\x1b[6m    •- - ↴     \x1b[0m',
+    '    ◇    .    .',
+    '    ◆    ◇    .',
+    '    ◆    ◇    .',
+    '    ⎼    ⎼    ⎼',
+    '    1°   2°   3°',
+    'Sort each column with a unique element to win.',
+    'That\'s all so let\'s start!\n',
+    '\x1b[6mPress ENTER to start.\x1b[0m\n'
+    ]
     input('\n'.join(msg))
 
 def coloramatest():

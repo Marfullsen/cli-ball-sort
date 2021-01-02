@@ -4,8 +4,10 @@
 from random import shuffle as revolver
 from utils import clrscr, pintar, paint, welcomeMsg
 from customizer import s
+import sys, copy
 
 tubos = list()
+tubos_backup = list()
 totalTubos = 9#int(input('Ingrese cantidad total de tubos (5-12): '))
 vacios = 2#int(input('Ingrese de tubos vacíos (1-2): ')) 
 if not (totalTubos - vacios > 2): totalTubos = 5; vacios = 2
@@ -25,7 +27,8 @@ def display():
 def displayAsCol():
     '''Mostrar como columnas.'''
     margin = ' ' * 4
-    dash = '⎼' # ‐‑‒–—― ⏷⏸⏹⏺⏻⏼⏽⏾ ⎺⎻⎼⎽ ➊➋➌➍➎➏➐➑➒➓
+    dash = '⎼' # ‐‑‒–—― ⏷⏸⏹⏺⏻⏼⏽⏾ ⎺⎻⎼⎽ ➊➋➌➍➎➏➐➑➒➓↴
+    print()
     for i in range(MAX_ITEMS-1,-1,-1):
         for j in range(len(tubos)):
              if len(tubos[j]) < i+1:
@@ -65,11 +68,11 @@ def mover(a,b):
               )
 
 def nuevoJuego():
-    global tubos
+    global tubos, tubos_backup
     cuartetosAlAzar = list(''.join([str(i)*MAX_ITEMS for i in range(totalTubos-vacios)]))
     revolver(cuartetosAlAzar)
     tubos = [cuartetosAlAzar[x*MAX_ITEMS:x*MAX_ITEMS+MAX_ITEMS] for x in range(totalTubos)]
-    
+    tubos_backup = copy.deepcopy(tubos)
     while verificar():
         print('\n\nMmmm.... the deck didn\'t shuffle properly... \nShuffling again!\n\n')
         nuevoJuego()
@@ -89,10 +92,25 @@ displayAsCol()
 
 while True:
     print('-------')
-    mover(
-        int( input('Select a column to withdraw the top element: ') ),
-        int( input('Select a column to put it into the top element: ') )
-        )
+    try:
+        mover(
+            int( input('Select a column to withdraw the top element: ') ),
+            int( input('Select a column to put it into the top element: ') )
+            )
+    except:
+        opc = input('Do you want to restart, undo continue or quit? (r/u/c/q) ')
+        while not opc.lower() in ['r','u','c','q']:
+            opc = input('Try again!\nDo you want to restart, undo continue or quit? (r/u/c/q) ')
+        if opc == 'r':
+            print('Restaring the current game...')
+            tubos = list(tubos_backup)
+        elif opc == 'u':
+            print('Unding the last moving...')
+            continue
+        elif opc == 'c':
+            pass
+        elif opc == 'q':
+            sys.exit()
     clrscr()
     displayAsCol()
     if verificar(): break

@@ -1,7 +1,15 @@
+__doc__ = ''' Utilildades de uso común.
+- Limpiar pantalla.
+- Colorear pantalla.
+- Mensaje de bienvenida.
+- Testeo de Colorama.
+'''
+
 import os
 from colorama import init, deinit, Fore, Back, Style
 
 def clrscr():
+   ''' Limpiar pantalla, testeado en Windows & Linux '''
    # for mac and linux(here, os.name is 'posix')
    if os.name == 'posix':
       _ = os.system('clear')
@@ -10,6 +18,9 @@ def clrscr():
       _ = os.system('cls')
 
 def pintar(color='', fondo='', texto=''):
+    '''
+    pintar los elementos
+    '''
     colores = {'AZUL':Fore.BLUE}
     fondos = {'AZUL':Back.BLUE}
     if color and fondo:
@@ -22,9 +33,11 @@ def pintar(color='', fondo='', texto=''):
         print(texto)
 
 def paint(fore='', back='', text='', style=''):
+    ''' Esto nunca se usó '''
     print(fore+back+text+style)
 
 def welcomeMsg():
+    ''' Mensaje de bienvenida y explicación del juego '''
     clrscr()
     msg = ['¡Welcome to \x1b[31m\x1b[40mCLI Ball Sort\x1b[0m,',
     'the game of sorting items!\n',
@@ -54,6 +67,5 @@ def coloramatest():
             print(text, end='')
         else:
             print(f'{i}) \x1b[{i}mtext '.rjust(10))
-
 
 init(autoreset=True)

@@ -110,7 +110,7 @@ while True:
         elif opc == 'c':
             pass
         elif opc == 'q':
-            sys.exit()
+            sys.exit(0)
     clrscr()
     displayAsCol()
     if verificar(): break

@@ -1,8 +1,8 @@
 ﻿# CLI Ball Sort Puzzle Game
-[![Screenshot](./screenshots/cli-ball-sort-columns-windows8.png)](https://github.com/Marfullsen/cli-ball-sort)
-[![GitHub version](https://img.shields.io/badge/Commits-2-red.svg)](https://github.com/Marfullsen/cli-ball-sort)
-[![GitHub version](https://img.shields.io/badge/Version-1.0-green.svg)](https://github.com/Marfullsen/cli-ball-sort)
-[![GitHub version](https://img.shields.io/badge/Python-3.7-blue.svg)](https://github.com/Marfullsen/cli-ball-sort)
+[![Screenshot](./screenshots/how-to-play-linux-manjaro-gnome-terminal.png)](https://github.com/Marfullsen/cli-ball-sort)
+[![Git commits](https://img.shields.io/badge/Commits-13-red.svg)](https://github.com/Marfullsen/cli-ball-sort)
+[![Game version](https://img.shields.io/badge/Version-2.0-green.svg)](https://github.com/Marfullsen/cli-ball-sort)
+[![Python version](https://img.shields.io/badge/Python-3.7-blue.svg)](https://github.com/Marfullsen/cli-ball-sort)
 
 ---
 
@@ -31,20 +31,23 @@ python cli-ball-sort.py
 3) You win if all columns are sorted with only one type of element or empty.
 Good luck!
 
+[![Screenshot](./screenshots/player-moved-2-to-4-linux-gnome-terminal.png)](https://github.com/Marfullsen/cli-ball-sort)
+
 ### beginner game: 
-- 4 rows & 1 Empty. (very easy).
+- 4 columns & 1 Empty. (very easy).
 
 ### Standard game:
-- 5 rows & 2 empty. (easy).
+- 5 columns & 2 empty. (easy).
 
 ### Moderate game:
-- 6 rows & 2 empty (Medium).
+- 6 columns & 2 empty (Medium).
 
 ### Difficult game:
-- 8 rows & 2 empty (Hard).
+- 8 columns & 2 empty (Hard).
 
 ### Madness game:
-- 11 rows & 2 empty (Extreme).
+- 11 columns & 2 empty (Extreme).
+
 ---
 
 ## Credit

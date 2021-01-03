@@ -8,7 +8,7 @@ import sys, copy
 
 tubos = list()
 tubos_backup = list()
-totalTubos = 9#int(input('Ingrese cantidad total de tubos (5-12): '))
+totalTubos = 5#int(input('Ingrese cantidad total de tubos (5-12): '))
 vacios = 2#int(input('Ingrese de tubos vacíos (1-2): ')) 
 if not (totalTubos - vacios > 2): totalTubos = 5; vacios = 2
 

@@ -42,7 +42,7 @@ def welcomeMsg():
     msg = ['¡Welcome to \x1b[31m\x1b[40mCLI Ball Sort\x1b[0m,',
     'the game of sorting items!\n',
     '    ◆    ◇    -\n'*3+
-    '    ⎼    ⎼    ⎼',
+    '    —    —    —',
     '    1°   2°   3°\n',
     '\x1b[21mHow to play\x1b[0m',
     'You must move the elements at the top of the columns over other matching elements or over empty columns.',
@@ -51,7 +51,7 @@ def welcomeMsg():
     '    ◇    .    .',
     '    ◆    ◇    .',
     '    ◆    ◇    .',
-    '    ⎼    ⎼    ⎼',
+    '    —    —    —',
     '    1°   2°   3°',
     'Sort each column with a unique element to win.',
     'That\'s all so let\'s start!\n',
@@ -68,4 +68,13 @@ def coloramatest():
         else:
             print(f'{i}) \x1b[{i}mtext '.rjust(10))
 
+def ttychars():
+    print(chr(402))
+    for i in range(500):
+        print(f'{i} {chr(i)} ',end='')
+        if i % 20 == 0:
+            print('')
+    input('\n\n')
+
 init(autoreset=True)
+

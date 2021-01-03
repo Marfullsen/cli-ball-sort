@@ -13,7 +13,7 @@ vacios = 2#int(input('Ingrese de tubos vacíos (1-2): '))
 if not (totalTubos - vacios > 2): totalTubos = 5; vacios = 2
 
 MAX_ITEMS = 4
-setsel = 5 # number of the set of designs selected.
+setsel = 0 # number of the set of designs selected.
 
 def display():
     char = 48 # Para ver números: 48, para ver letras: 65.
@@ -27,7 +27,7 @@ def display():
 def displayAsCol():
     '''Mostrar como columnas.'''
     margin = ' ' * 4
-    dash = '⎼' # ‐‑‒–—― ⏷⏸⏹⏺⏻⏼⏽⏾ ⎺⎻⎼⎽ ➊➋➌➍➎➏➐➑➒➓↴
+    dash = chr(8212) # ‐‑‒–—― ⏷⏸⏹⏺⏻⏼⏽⏾ ⎺⎻⎼⎽ ➊➋➌➍➎➏➐➑➒➓↴
     print()
     for i in range(MAX_ITEMS-1,-1,-1):
         for j in range(len(tubos)):

@@ -1,5 +1,5 @@
-# CLI Ball Sort Puzzle Game
-[![Screenshot](./screenshot-cmder-and-python-idle.png)](https://github.com/Marfullsen/cli-ball-sort)
+﻿# CLI Ball Sort Puzzle Game
+[![Screenshot](./screenshots/cli-ball-sort-columns-windows8.png)](https://github.com/Marfullsen/cli-ball-sort)
 [![GitHub version](https://img.shields.io/badge/Commits-2-red.svg)](https://github.com/Marfullsen/cli-ball-sort)
 [![GitHub version](https://img.shields.io/badge/Version-1.0-green.svg)](https://github.com/Marfullsen/cli-ball-sort)
 [![GitHub version](https://img.shields.io/badge/Python-3.7-blue.svg)](https://github.com/Marfullsen/cli-ball-sort)
@@ -7,7 +7,9 @@
 ---
 
 ## Desc
+
 Game like "Ball Sort Puzzle" written in Python for the command-line.
+
 ---
 
 ## Usage
@@ -24,10 +26,10 @@ python cli-ball-sort.py
 
 ## How to play
 
-1) Place elements with same char into one row.
-2) Take any element at the end of a row and move it into an empty row or next to an element with same char.
-3) You win if all rows are filled with only one type of element, or are empty.
-Viel Glück! :four_leaf_clover:
+1) Place elements with same element into a column.
+2) Take any element at the top of a column and move it into an empty column or over an element with same element.
+3) You win if all columns are sorted with only one type of element or empty.
+Good luck!
 
 ### beginner game: 
 - 4 rows & 1 Empty. (very easy).
